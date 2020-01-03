@@ -76,7 +76,8 @@ async def collect_urls(channel):
 
 
 async def main():
-    url = 'https://t.me/IronDrovosek/'
+#    url = 'https://t.me/IronDrovosek/'
+    url = input("Input starting channel")
     channel = await client.get_entity(url)
     ch_full = await client(GetFullChannelRequest(channel))
     print(ch_full.full_chat)
