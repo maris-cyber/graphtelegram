@@ -1,0 +1,399 @@
+graph [
+  directed 1
+  node [
+    id 0
+    label "https://t.me/IronDrovosek/"
+  ]
+  node [
+    id 1
+    label "https://t.me/kremlebezBashennik/"
+  ]
+  node [
+    id 2
+    label "https://t.me/ze_team2019/"
+  ]
+  node [
+    id 3
+    label "https://t.me/addstickers/"
+  ]
+  node [
+    id 4
+    label "https://t.me/romanenko_dns/"
+  ]
+  node [
+    id 5
+    label "https://t.me/AssadStash/"
+  ]
+  node [
+    id 6
+    label "https://t.me/gamer/"
+  ]
+  node [
+    id 7
+    label "https://t.me/joinchat/"
+  ]
+  node [
+    id 8
+    label "https://t.me/mediakiller/"
+  ]
+  node [
+    id 9
+    label "https://t.me/finpol/"
+  ]
+  node [
+    id 10
+    label "https://t.me/tikandelaki/"
+  ]
+  node [
+    id 11
+    label "https://t.me/SuperRu/"
+  ]
+  node [
+    id 12
+    label "https://t.me/redsmm/"
+  ]
+  node [
+    id 13
+    label "https://t.me/seryikardinal/"
+  ]
+  node [
+    id 14
+    label "https://t.me/NikitaIsaev/"
+  ]
+  node [
+    id 15
+    label "https://t.me/cheltodayru/"
+  ]
+  node [
+    id 16
+    label "https://t.me/kremlinprachka/"
+  ]
+  node [
+    id 17
+    label "https://t.me/gayasylum/"
+  ]
+  node [
+    id 18
+    label "https://t.me/russianfuture/"
+  ]
+  node [
+    id 19
+    label "https://t.me/Naturecop/"
+  ]
+  node [
+    id 20
+    label "https://t.me/russica2/"
+  ]
+  node [
+    id 21
+    label "https://t.me/sakhnews/"
+  ]
+  node [
+    id 22
+    label "https://t.me/primhorn/"
+  ]
+  node [
+    id 23
+    label "https://t.me/khasanskiy/"
+  ]
+  node [
+    id 24
+    label "https://t.me/trutnevinfo/"
+  ]
+  node [
+    id 25
+    label "https://t.me/mestopro/"
+  ]
+  node [
+    id 26
+    label "https://t.me/Nedebri/"
+  ]
+  node [
+    id 27
+    label "https://t.me/oibelozerov/"
+  ]
+  node [
+    id 28
+    label "https://t.me/flugerpro/"
+  ]
+  node [
+    id 29
+    label "https://t.me/komsagram/"
+  ]
+  node [
+    id 30
+    label "https://t.me/krottik/"
+  ]
+  node [
+    id 31
+    label "https://t.me/zloi_dv/"
+  ]
+  node [
+    id 32
+    label "https://t.me/vataDV/"
+  ]
+  node [
+    id 33
+    label "https://t.me/khabpolitcentr/"
+  ]
+  node [
+    id 34
+    label "https://t.me/sidpolit/"
+  ]
+  node [
+    id 35
+    label "https://t.me/oldhellboy/"
+  ]
+  node [
+    id 36
+    label "https://t.me/SolovievLive/"
+  ]
+  node [
+    id 37
+    label "https://t.me/PlushevChannel/"
+  ]
+  node [
+    id 38
+    label "https://t.me/bbcrussian/"
+  ]
+  edge [
+    source 0
+    target 1
+  ]
+  edge [
+    source 1
+    target 2
+  ]
+  edge [
+    source 1
+    target 4
+  ]
+  edge [
+    source 1
+    target 8
+  ]
+  edge [
+    source 2
+    target 3
+  ]
+  edge [
+    source 4
+    target 5
+  ]
+  edge [
+    source 5
+    target 6
+  ]
+  edge [
+    source 5
+    target 5
+  ]
+  edge [
+    source 6
+    target 6
+  ]
+  edge [
+    source 6
+    target 7
+  ]
+  edge [
+    source 8
+    target 9
+  ]
+  edge [
+    source 9
+    target 10
+  ]
+  edge [
+    source 10
+    target 11
+  ]
+  edge [
+    source 11
+    target 12
+  ]
+  edge [
+    source 11
+    target 13
+  ]
+  edge [
+    source 12
+    target 12
+  ]
+  edge [
+    source 12
+    target 7
+  ]
+  edge [
+    source 13
+    target 14
+  ]
+  edge [
+    source 14
+    target 15
+  ]
+  edge [
+    source 15
+    target 16
+  ]
+  edge [
+    source 16
+    target 17
+  ]
+  edge [
+    source 17
+    target 16
+  ]
+  edge [
+    source 17
+    target 18
+  ]
+  edge [
+    source 18
+    target 16
+  ]
+  edge [
+    source 18
+    target 19
+  ]
+  edge [
+    source 19
+    target 19
+  ]
+  edge [
+    source 19
+    target 0
+  ]
+  edge [
+    source 19
+    target 20
+  ]
+  edge [
+    source 20
+    target 21
+  ]
+  edge [
+    source 21
+    target 16
+  ]
+  edge [
+    source 21
+    target 22
+  ]
+  edge [
+    source 22
+    target 1
+  ]
+  edge [
+    source 22
+    target 23
+  ]
+  edge [
+    source 23
+    target 24
+  ]
+  edge [
+    source 24
+    target 25
+  ]
+  edge [
+    source 25
+    target 24
+  ]
+  edge [
+    source 25
+    target 26
+  ]
+  edge [
+    source 26
+    target 27
+  ]
+  edge [
+    source 26
+    target 25
+  ]
+  edge [
+    source 26
+    target 22
+  ]
+  edge [
+    source 26
+    target 21
+  ]
+  edge [
+    source 26
+    target 28
+  ]
+  edge [
+    source 26
+    target 30
+  ]
+  edge [
+    source 26
+    target 31
+  ]
+  edge [
+    source 28
+    target 29
+  ]
+  edge [
+    source 28
+    target 28
+  ]
+  edge [
+    source 31
+    target 31
+  ]
+  edge [
+    source 31
+    target 32
+  ]
+  edge [
+    source 32
+    target 33
+  ]
+  edge [
+    source 33
+    target 14
+  ]
+  edge [
+    source 33
+    target 26
+  ]
+  edge [
+    source 33
+    target 33
+  ]
+  edge [
+    source 33
+    target 34
+  ]
+  edge [
+    source 34
+    target 21
+  ]
+  edge [
+    source 34
+    target 35
+  ]
+  edge [
+    source 35
+    target 36
+  ]
+  edge [
+    source 36
+    target 16
+  ]
+  edge [
+    source 36
+    target 37
+  ]
+  edge [
+    source 37
+    target 37
+  ]
+  edge [
+    source 37
+    target 38
+  ]
+]
