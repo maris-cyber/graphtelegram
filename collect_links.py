@@ -2,7 +2,8 @@ import configparser
 import json
 import re
 from telethon.tl.functions.channels import GetFullChannelRequest
-
+import networkx as nx
+import matplotlib
 
 
 from telethon.sync import TelegramClient
@@ -39,6 +40,8 @@ client = TelegramClient(username, api_id, api_hash) #,
 
 client.start()
 
+G = nx.DiGraph()
+
 
 async def collect_urls(channel):
     offset_msg = 0
@@ -61,13 +64,13 @@ async def collect_urls(channel):
             break
         messages = history.messages
         for message in messages:
-#            all_messages.append(message.to_dict())
+            # all_messages.append(message.to_dict())
             if type(message.message) is str:
-#                print(message.message)
+                # print(message.message)
                 for l in re.findall(r'(https://t.me/[\S]+/)', message.message):
                     links.add(l)
-#                    print(l)
-#                print(type(re.findall(r'(https://t.me/[\S]+/)', message.message)))
+                    # print(l)
+                # print(type(re.findall(r'(https://t.me/[\S]+/)', message.message)))
         offset_msg = messages[len(messages) - 1].id
         total_messages = len(all_messages)
         if total_count_limit != 0 and total_messages >= total_count_limit:
@@ -75,20 +78,35 @@ async def collect_urls(channel):
     return(links)
 
 
+async def add_tg_channels(url):
+
+    try:
+        channel = await client.get_entity(url)
+        ch_full = await client(GetFullChannelRequest(channel))
+        print("\n-----\nTelegam channel", url)
+        print(ch_full.full_chat.about)
+        lnks = await collect_urls(channel)
+        print('lnks',lnks)
+        # urls.update(lnks)
+        # print("urls",urls)
+        for u in lnks:
+            print(u)
+#        if есть u среди узлов, пропускаем
+            if u in G.nodes:
+                print(u," in ")
+                G.add_edge(url,u)
+                continue
+            G.add_edge(url,u)
+            await add_tg_channels(u)
+    except:
+        print("Can't connect to channel", url)
+
+
 async def main():
-    url = 'https://t.me/IronDrovosek/'
-    channel = await client.get_entity(url)
-    ch_full = await client(GetFullChannelRequest(channel))
-    print(ch_full.full_chat)
-    lnks = await collect_urls(channel)
-    for url in lnks:
-        try:
-            print("\n-----\nTelegam channel", url)
-            channel = await client.get_entity(url)
-            ch_full = await client(GetFullChannelRequest(channel))
-            print(ch_full.full_chat.about, "\n")
-        except:
-            print("Can't connect to channel", url)
+    furl = 'https://t.me/IronDrovosek/'
+    # furl = input("Input starting channel")
+    await add_tg_channels(furl)
+    nx.draw_networkx(G)
 
 with client:
     client.loop.run_until_complete(main())
