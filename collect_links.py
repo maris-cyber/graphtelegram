@@ -9,7 +9,7 @@ import matplotlib
 from telethon.sync import TelegramClient
 
 # if need proxy unmark
-# from telethon import connection
+from telethon import connection
 
 # classes for work with channels
 from telethon.tl.functions.channels import GetParticipantsRequest
@@ -29,14 +29,23 @@ config.read("cfg.ini")
 api_id   = config['Telegram']['api_id']
 api_hash = config['Telegram']['api_hash']
 username = config['Telegram']['username']
+proxy_server = config['Telegram']['proxy_server']
+proxy_port = int(config['Telegram']['proxy_port'])
+proxy_key = config['Telegram']['proxy_key']
+start_channel = config['Telegram']['start_channel']
+
+# proxy_server = '78.46.214.49'
+# proxy_port = 1050
+# proxy_key = 'dd57d843d08a62464d3ce484c573326241'
+
 
 # if need proxy unmark
-# proxy = (proxy_server, proxy_port, proxy_key)
+proxy = (proxy_server, proxy_port, proxy_key)
 
-client = TelegramClient(username, api_id, api_hash) #,
+client = TelegramClient(username, api_id, api_hash,
 # if need proxy unmark
-#    connection=connection.ConnectionTcpMTProxyRandomizedIntermediate,
-#    proxy=proxy)
+    connection=connection.ConnectionTcpMTProxyRandomizedIntermediate,
+    proxy=proxy)
 
 client.start()
 
@@ -103,10 +112,9 @@ async def add_tg_channels(url):
 
 
 async def main():
-    furl = 'https://t.me/IronDrovosek/'
-    # furl = input("Input starting channel")
-    await add_tg_channels(furl)
-    # nx.draw_networkx(G)
+    G.add_node(start_channel)
+    nx.write_gml(G, "./test")
+    await add_tg_channels(start_channel)
 
 with client:
     client.loop.run_until_complete(main())
