@@ -91,12 +91,12 @@ async def add_tg_channels(url):
         # print("urls",urls)
         for u in lnks:
             print(u)
-#        if есть u среди узлов, пропускаем
             if u in G.nodes:
                 print(u," in ")
                 G.add_edge(url,u)
                 continue
             G.add_edge(url,u)
+            nx.write_gml(G, "./test")
             await add_tg_channels(u)
     except:
         print("Can't connect to channel", url)
@@ -106,7 +106,7 @@ async def main():
     furl = 'https://t.me/IronDrovosek/'
     # furl = input("Input starting channel")
     await add_tg_channels(furl)
-    nx.draw_networkx(G)
+    # nx.draw_networkx(G)
 
 with client:
     client.loop.run_until_complete(main())
