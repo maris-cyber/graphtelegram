@@ -34,9 +34,7 @@ proxy_port = int(config['Telegram']['proxy_port'])
 proxy_key = config['Telegram']['proxy_key']
 start_channel = config['Telegram']['start_channel']
 
-# proxy_server = '78.46.214.49'
-# proxy_port = 1050
-# proxy_key = 'dd57d843d08a62464d3ce484c573326241'
+for_save = re.split(r'\s',(config['Interest']['for_save']))
 
 
 # if need proxy unmark
@@ -75,11 +73,11 @@ async def collect_urls(channel):
         for message in messages:
             # all_messages.append(message.to_dict())
             if type(message.message) is str:
-                # print(message.message)
+                for r in for_save:
+                    if re.search(r.lower(), message.message.lower()):
+                        print('r = ',r, ', message = ', message.message)
                 for l in re.findall(r'(https://t.me/[\S]+/)', message.message):
                     links.add(l)
-                    # print(l)
-                # print(type(re.findall(r'(https://t.me/[\S]+/)', message.message)))
         offset_msg = messages[len(messages) - 1].id
         total_messages = len(all_messages)
         if total_count_limit != 0 and total_messages >= total_count_limit:
