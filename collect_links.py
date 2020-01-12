@@ -4,6 +4,7 @@ import re
 from telethon.tl.functions.channels import GetFullChannelRequest
 import networkx as nx
 import matplotlib
+import os
 
 
 from telethon.sync import TelegramClient
@@ -32,8 +33,21 @@ proxy_port = int(config['Telegram']['proxy_port'])
 proxy_key = config['Telegram']['proxy_key']
 start_channel = config['Telegram']['start_channel']
 
-for_save = re.split(r'\s',(config['Interest']['for_save']))
-
+intertest = re.split(r'#',(config['Save']['interest']))
+fpath = config['Save']['folder']
+        
+if not os.path.isdir(fpath):
+    print('Can I create folder: ', fpath,'?')
+    if input() == 'y':
+        try:
+            os.mkdir(fpath)
+        except:
+            print ('I can\'t create folder ', fpath)
+        else:
+            print ('Craeted folder ', fpath)
+    else:
+        sys.exit()
+         
 
 # if need proxy 
 proxy = (proxy_server, proxy_port, proxy_key)
@@ -80,7 +94,7 @@ async def collect_urls(channel):
         for message in messages:
             # all_messages.append(message.to_dict())
             if type(message.message) is str:
-                for r in for_save:
+                for r in interest:
                     if re.search(r.lower(), message.message.lower()):
                         print('r = ',r, ', message = ', message.message)
                 for l in re.findall(r'(https://t.me/[\S]+/)', message.message):
