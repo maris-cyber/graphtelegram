@@ -32,6 +32,7 @@ proxy_server = config['Telegram']['proxy_server']
 proxy_port = int(config['Telegram']['proxy_port'])
 proxy_key = config['Telegram']['proxy_key']
 start_channel = config['Telegram']['start_channel']
+tg_timeout = int(config['Telegram']['timeout'])
 
 interest = re.split(r'#',(config['Save']['interest']))
 fpath = config['Save']['folder']
@@ -54,14 +55,14 @@ if not os.path.isdir(fpath):
 proxy = (proxy_server, proxy_port, proxy_key)
 
 try:
-    client = TelegramClient(username, api_id, api_hash)
+    client = TelegramClient(username, api_id, api_hash, timeout=tg_timeout)
     client.start()
 except ConnectionError:
     print('attempt with proxy')
     from telethon import connection
     client = TelegramClient(username, api_id, api_hash,
        connection=connection.ConnectionTcpMTProxyRandomizedIntermediate,
-       proxy=proxy)
+       proxy=proxy, timeout=tg_timeout)
     client.start()
 #except Exception as ex:
 #    template = "An exception of type {0} occurred. Arguments:\n{1!r}"
